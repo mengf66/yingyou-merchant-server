@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
-const secret = 'sdfsdfsdf123123!ASDasdasdasdasda';
+// 签名密钥从环境变量 API_JWT_SECRET 读取；源码里的旧默认值是公开的，生产环境未设置时直接报错
+const secret = process.env.API_JWT_SECRET || (think.env === 'production' ? '' : 'sdfsdfsdf123123!ASDasdasdasdasda');
+if (!secret) throw new Error('缺少环境变量 API_JWT_SECRET');
 module.exports = class extends think.Service {
     /**
      * 根据header中的x-hioshop-token值获取用户id

@@ -1,0 +1,9 @@
+{
+  "name": "mysql",
+  "version": "2.99.0",
+  "description": "compat layer: require('mysql') -> mysql2 (MySQL 8/9 auth), relaxes session sql_mode",
+  "main": "index.js",
+  "dependencies": {
+    "mysql2": "^3.11.0"
+  }
+}

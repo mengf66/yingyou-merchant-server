@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
-const secret = 'SLDLKKDS323ssdd@#@@gf';
+// 签名密钥从环境变量 ADMIN_JWT_SECRET 读取；源码里的旧默认值是公开的，生产环境未设置时直接报错
+const secret = process.env.ADMIN_JWT_SECRET || (think.env === 'production' ? '' : 'SLDLKKDS323ssdd@#@@gf');
+if (!secret) throw new Error('缺少环境变量 ADMIN_JWT_SECRET');
 
 const moment = require('moment');
 const rp = require('request-promise');
